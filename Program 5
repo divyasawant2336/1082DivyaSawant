@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+class Shape{
+public:
+    int peri(int s){
+        return 4 * s;
+    }
+
+    int peri(int l, int b){
+        return 2 * (l + b);
+    }
+};
+
+int main(){
+    Shape poly;
+
+    int s, l, b;
+
+    cout << "Enter side of square: ";
+    cin >> s;
+    cout << "Perimeter of square = "
+         << poly.peri(s) << endl;
+    cout << "\nEnter length of rectangle: ";
+    cin >> l;
+    cout << "Enter breadth of rectangle: ";
+    cin >> b;
+    cout << "Perimeter of rectangle = "
+         << poly.peri(l, b) << endl;
+
+    return 0;
+}

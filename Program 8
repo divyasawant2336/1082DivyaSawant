@@ -1,0 +1,65 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class Employee {
+protected:
+    int id;
+    string name;
+
+public:
+    void getInfo() {
+        cout << "Enter Employee ID: ";
+        cin >> id;
+        cout << "Enter Employee Name: ";
+        cin >> name;
+    }
+};
+
+class WorkingHours {
+protected:
+    int hours;
+    int normalHours;
+    float rate;
+
+public:
+    void getWorkingHours() {
+        cout << "Enter total working hours: ";
+        cin >> hours;
+
+        cout << "Enter normal working hours: ";
+        cin >> normalHours;
+
+        cout << "Enter overtime rate per hour: ";
+        cin >> rate;
+    }
+};
+
+class Overtime : public Employee, public WorkingHours {
+public:
+    void calculate() {
+        int overtimeHours = hours - normalHours;
+
+        if (overtimeHours < 0)
+            overtimeHours = 0;
+
+        float payment = overtimeHours * rate;
+
+        cout << "\n--- Employee Details ---" << endl;
+        cout << "Employee ID: " << id << endl;
+        cout << "Employee Name: " << name << endl;
+        cout << "Total Working Hours: " << hours << endl;
+        cout << "Overtime Hours: " << overtimeHours << endl;
+        cout << "Overtime Payment: Rs. " << payment << endl;
+    }
+};
+
+int main() {
+    Overtime emp;
+
+    emp.getInfo();
+    emp.getWorkingHours();
+    emp.calculate();
+
+    return 0;
+}

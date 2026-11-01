@@ -1,0 +1,37 @@
+#include <iostream>
+using namespace std;
+
+// Class Template
+template <class T>
+class Demo {
+    T a, b;
+
+public:
+    Demo(T x, T y) {
+        a = x;
+        b = y;
+    }
+
+    void display() {
+        cout << "Values: " << a << " and " << b << endl;
+    }
+};
+
+// Function Template
+template <class T>
+T add(T x, T y) {
+    return x + y;
+}
+
+int main() {
+    Demo<int> d1(10, 20);
+    Demo<float> d2(2.5, 3.5);
+
+    d1.display();
+    d2.display();
+
+    cout << "Addition of integers: " << add(5, 10) << endl;
+    cout << "Addition of floats: " << add(2.5, 3.5) << endl;
+
+    return 0;
+}

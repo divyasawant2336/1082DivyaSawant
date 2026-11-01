@@ -1,0 +1,25 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream file1("input.txt");
+    file1 << "Hello World!\nWelcome to C++ file handling.";
+    file1.close();
+
+    ifstream file2("input.txt");
+    ofstream file3("output.txt");
+
+    char ch;
+
+    while (file2.get(ch)) {
+        file3.put(ch);
+    }
+
+    file2.close();
+    file3.close();
+
+    cout << "Contents copied successfully!";
+    return 0;
+}
+P
